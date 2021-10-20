@@ -1,0 +1,74 @@
+<section class="signup-form form-box">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="12px"
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        name="email"
+        type="email"
+        placeholder="You`re email"
+        autocomplete="off"
+        ngModel
+        email
+        required
+        #emailInp="ngModel"
+      />
+      <!-- 'email is NG property, not material. (property of EmailValidator)' -->
+      <mat-error *ngIf="emailInp.hasError('required')">Give Emal!</mat-error>
+      <!-- if no email provided - "required" error -->
+      <mat-error *ngIf="!emailInp.hasError('required')"
+        >Emal no bueno</mat-error
+      >
+      <!-- if no "required" error but form field is still not valid -->
+    </mat-form-field>
+
+    <mat-form-field hintLabel="no want short want long six or mor">
+      <input
+        matInput
+        name="password"
+        type="password"
+        placeholder="You`re password"
+        autocomplete="off"
+        ngModel
+        required
+        minlength="6"
+        #passInp="ngModel"
+      />
+      <mat-hint align="end">{{ isPleased(passInp) }}</mat-hint>
+      <!-- mat-hint is a part of form field module no need to import separately works similar to hintLabel -->
+      <!-- <mat-error>{{isPleased(passInp)}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        ngModel
+        name="date"
+        required
+        [matDatepicker]="datePick"
+        placeholder="How OLD?"
+        [max]="maxDate"
+      />
+      <mat-datepicker-toggle [for]="datePick" matSuffix></mat-datepicker-toggle>
+      <!-- matSuffix places toggle icon at the end of form field so it looks better -->
+      <mat-datepicker #datePick></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox
+      ngModel
+      name="agree"
+      required
+      labelPosition="before"
+      color="primary"
+      >Agree your pp small</mat-checkbox
+    >
+    <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">
+      Subumt
+    </button>
+  </form>
+</section>
