@@ -1,21 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
 
-.form-box{
+body {
+  margin: 0;
+}
+
+.form-box {
   width: 400px;
   padding: 20px;
   margin: 20px;
   box-shadow: 4px 3px 20px 0px rgb(0 0 0 / 20%);
-  
-  mat-form-field{
+
+  mat-form-field {
     width: 350px;
   }
 
-  button{
+  button {
     margin-top: 30px;
   }
 }

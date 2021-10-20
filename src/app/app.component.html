@@ -1,2 +1,15 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <!-- role="navigation" is here for accessibility reasons -->
+  <mat-sidenav #sideNav role="navigation">
+    <p>SideBar</p>
+    <p>SideBar</p>
+    <p>SideBar</p>
+    <p>SideBar</p>
+    <p>SideBar</p>
+    <p>SideBar</p>
+  </mat-sidenav>
+  <mat-sidenav-content>
 
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
